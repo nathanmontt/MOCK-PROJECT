@@ -1,0 +1,22 @@
+/*
+    Aqui você pode importar todos os estilos de outras páginas.
+    
+    Caso você tenha um projeto com mais de 2 páginas (sobre.html, contato.html e login.html, por exemplo), cada uma delas precisa de um estilo específico.
+    
+    Com isso, dentro de styles, você terá de criar uma pasta geral, chamada pages e um arquivo para referente a cada página .html (sobre.css, login.css, contato.css, etc).
+
+    Assim ficamos com uma boa organização desde o início. O main.css ficará responsável apenas por importar para cá. Mas porque isso?
+
+    Se formos no index.html e quisermos chamar cada uma das páginas .css no head, ficaríamos com:
+    - <link rel="stylesheet" href="assets/styles/sobre/sobre.css">
+    - <link rel="stylesheet" href="assets/styles/contato/contato.css">
+    - <link rel="stylesheet" href="assets/styles/login/login.css">
+    - <link rel="stylesheet" href="assets/styles/pacotes/pacotes.css">
+    - e por aí vai, dependendo da quantidade de páginas que você tem!
+    
+    Para que isso não ocorra, podemos apenas fazer isso:
+    - <link rel="stylesheet" href="assets/styles/main.css">
+    Já que agora TODOS OS OUTROS ESTILOS ESTÃO IMPORTADOS DENTRO DO MAIN, NÃO PRECISAMOS NOS PREOCUPAR EM CHAMAR ESSA QUANTIDADE TODA DE ESTILOS!
+*/
+
+@import url('reset/reset.css');
