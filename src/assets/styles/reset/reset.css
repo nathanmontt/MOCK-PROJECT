@@ -36,7 +36,6 @@ time, mark, audio, video {
 /* Tipografia e fundo */
 html {
 	font-family: var(--font-family-main);
-	font-size: 16px;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
@@ -74,14 +73,14 @@ table { border-collapse: collapse; border-spacing: 0; }
 input::-ms-clear, input::-ms-reveal { display: none; }
 
 /* Preferências do usuário por redução de movimento */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after {
-		animation-duration: 0.001ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.001ms !important;
-		scroll-behavior: auto !important;
+		animation-duration: 0.001ms;
+		animation-iteration-count: 1;
+		transition-duration: 0.001ms;
+		scroll-behavior: auto;
 	}
-}
+} */
 
 /* Font smoothing */
-html, body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+/* html, body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } */

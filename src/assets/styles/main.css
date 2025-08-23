@@ -20,3 +20,51 @@
 */
 
 @import url('reset/reset.css');
+
+:root {
+    /* VARIAVEIS DE TAMANHO */
+    --size-small: .5em;
+    --size-medium: 1em;
+    --size-large: 2em;
+    
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: var(--size-medium);
+}
+header .logo-project {
+    width: 3em;
+    height: 3em;
+}
+@media screen and (min-width: 768px) {
+    nav ul {
+        display: flex;
+    }
+    ul li {
+        padding: var(--size-small);
+        margin-right: var(--size-medium);
+    }
+}
+
+main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .mock-section {
+    text-align: center;
+}
