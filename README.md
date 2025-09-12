@@ -19,11 +19,9 @@
 - [Tecnologias Usadas](#stacks)
 - [Links Uteis](#links)
 - [Contribuição](#contribuicao) 
-- [Reconhecimentos](#reconhecimentos)
 - [Licença](#licenca)
 - [Autor](#autor-projeto)
 
----
 
 <h1 id="sobre">Sobre o Projeto</h1>
 
@@ -41,7 +39,6 @@ As tecnologias utilizadas no projeto foram:
 - **CSS**: Utilizado para a estilização do projeto, empregando conceitos como .....;
 - **Tecnologia 3**: adicione o que essa tecnologia faz e como que você utilizou ela no projeto. Seja sucinto nas palavras! 
 
----
 
 <h1 id="links">Links Úteis</h1>
 
@@ -53,12 +50,17 @@ Abaixo, foram adicionados links usados para estudo e diversos:
 **Dribbble** | Site usaddo para buscar referências e inspirações ao decorrer da aplicação em questão
 **Outros** | Adicione links, sites, artigos, tudo o que você usou como estudo para chegar ao final do projeto que está criando!
 
-##  Licença & Autor
+
+<h1 id="contribuicao">Contribuição</h1>
+
+No momento, não há contruibuições. Caso queira, clone esse repositório/dê um fork/dê um PR!
+
+
+<h1 id="licenca">Licença</h1>
 
 Este README.md e o conteúdo associado ao [nome do autor] estão sob **licença MIT**. Veja `LICENSE.md` para mais detalhes.
 
-**Autor**: [nome do autor]
 
----
+<h1 id="autor-projeto">Autor</h1>
 
-OBS.: para mais dúvidas, procure sobre README.md modelos. Entre em outros githubs para se inspirar!
+Copyright © [ANO], [Nome do autor]
