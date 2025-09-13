@@ -7,11 +7,11 @@ src/
 |    |   |   └── imagem3.jpg
 |    |   |   └── ....
 |    |   |   └── logo/
-|    |   |   |   └── logo1.png
+|    |   |   |   └── logo-main.png
 |    |   |   |   └── logo-alternativa.jpeg
 |    |   |   |   └── ...
 |    |   |   └── favicon/
-|    |   |   |   └── favicon1.ico
+|    |   |   |   └── favicon-main.ico
 |    |   |   |   └── favicon-alternativo.ico
 |    |   |   |   └── ...
 |    |   ├── js/

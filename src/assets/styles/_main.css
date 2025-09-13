@@ -8,7 +8,7 @@
     No documento STRUCTURE.md você vai entender melhor o que cada pasta armazena e o que cada arquivo pode conter!
 
 
-    Assim, o main.css fica responsável apenas por ser o importador dos arquivos para cá. Mas porque isso? A questão principal seria: muitos estilos em um único arquivo!
+    Assim, o main.css fica responsável apenas por ser o importador dos arquivos para cá (além de estilizar o index.html central). Mas porque dessa tarefa para ele? A questão principal seria: muitos estilos em um único arquivo!
 
     Modularização e flexibilidade no seu código é importante, principalmente a legibilidade, tanto para você quanto para sua equipe!
 */
