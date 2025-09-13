@@ -1,9 +1,18 @@
 /*
-    Aqui você pode importar todos os estilos de outras páginas.
+    Aqui você importa todos os estilos de outras páginas. Como assim?
     
-    Caso você tenha um projeto com mais de 2 páginas (sobre.html, contato.html e login.html, por exemplo), cada uma delas precisa de um estilo específico.
+    Caso você tenha um projeto com mais de 2 páginas .html (sobre.html, contato.html, login.html, etc), cada uma delas, muitas vezes, precisa de um estilo específico.
     
-    Com isso, dentro de styles, você terá de criar uma pasta geral, chamada pages e um arquivo para referente a cada página .html (sobre.css, login.css, contato.css, etc).
+    Com isso, dentro da sua pasta de estilos (styles), você cria uma pasta que armazene os estilos específicos de cada página .html que você tem!
+    Vamos pensar na estruturação de todos os arquivos da seguinte forma:
+    
+    src
+    styles/
+    ├── pages/
+    |   └──_contato.css
+    |   └──_login.css
+    |   └──_sobre.css
+    |   └── ....
 
     Assim ficamos com uma boa organização desde o início. O main.css ficará responsável apenas por importar para cá. Mas porque isso?
 
