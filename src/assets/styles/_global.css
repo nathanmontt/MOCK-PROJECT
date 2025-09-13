@@ -1,0 +1,8 @@
+/*
+    Arquivo de estilos globais.
+    Toda página possui algo igual (uma cor idêntica em um parágrafo, um botão igual em todas as páginas, uma imagem, etc).
+
+    Para que não precisemos refazer o mesmo estilo em diferentes páginas diversas vezes, usamos o _global.css para esse trabalho.
+
+    Lembrando que, para que o estilo seja utilizado corretamente, será necessário usar a class correta também (além de importar sempre o global em todos os arquivos dentro de pages (_contato.css, _sobre.css, etc). Fuçando cada arquivo aqui dentro, você vai entender do que se trata!
+*/
