@@ -13,52 +13,36 @@
     Modularização e flexibilidade no seu código é importante, principalmente a legibilidade, tanto para você quanto para sua equipe!
 */
 
-@import url('reset/reset.css');
+@import url('other/_reset.css');
+@import url('other/_variables.css');
 
-:root {
-    /* VARIAVEIS DE TAMANHO */
-    --size-small: .5em;
-    --size-medium: 1em;
-    --size-large: 2em;
-    
+body {
+    /* background-color: black; */
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     
-    padding: var(--size-medium);
+    margin: var(--size-normal);
+    padding: var(--size-normal);
+    border: 2px solid red;
 }
-header .logo-project {
-    width: 3em;
-    height: 3em;
-}
-@media screen and (min-width: 768px) {
-    nav ul {
-        display: flex;
-    }
-    ul li {
-        padding: var(--size-small);
-        margin-right: var(--size-medium);
-    }
+header .link-home {}
+.link-home .logo-project {
+    width: var(--size-medium);
+    border: 2px solid blue;
+
 }
 
-main {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+header .container-hamb-menu {}
+.container-hamb-menu .hamb-menu {}
+.container-hamb-menu nav {}
 
-    min-height: 100dvh;
+nav .options-menu {}
+.options-menu li {}
+.options-menu a{}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-main .mock-section {
-    text-align: center;
-}
+nav .options-login {}
+.options-login li {}
+.options-login a{}

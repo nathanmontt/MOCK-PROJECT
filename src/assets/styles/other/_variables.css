@@ -1,0 +1,27 @@
+@import url('_reset.css');
+
+:root {
+    /* sizes */
+    --size-smaller: .3em;
+    --size-small: .5em;
+    --size-normal: 1em;
+    --size-medium: 3em;
+    --size-big: 5em;
+    --size-bigger: 7em;
+    --size-large: 10em;
+    --size-larger: 15em;
+    --size-largest: 20em;
+
+    /* colors */
+    --color-bg-main: black;
+    --color-bg-secondary: firebrick;
+
+    --color-font-main: blue;
+    --color-font-secondary: red;
+
+    --color-btn-cta-main: purple;
+    --color-btn-secondary: salmon;
+}
+
+/* Utilitários */
+.hidden { display: none; }

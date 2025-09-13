@@ -22,8 +22,9 @@ src/
 |    |   |   └── contato.html
 |    |   |   └── ...
 |    |   ├── styles/
-|    |   |   ├── reset/
+|    |   |   ├── others/
 |    |   |   |   └── _reset.css
+|    |   |   |   └── _variables.css
 |    |   |   ├── pages/
 |    |   |   |   └── _sobre.css
 |    |   |   |   └── _contato.css

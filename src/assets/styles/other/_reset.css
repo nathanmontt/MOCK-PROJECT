@@ -9,12 +9,6 @@
 	Pode copiar e colar isso em um arquivo seu. Mas antes, entenda o que está acontecendo!
 */
 
-:root {
-	--font-family-main: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-	--color-font-main: #000000;
-	--color-background-main: #ffffff;
-}
-
 /* Box sizing global */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -36,18 +30,7 @@ time, mark, audio, video {
 	padding: 0;
 }
 
-/* Tipografia e fundo */
-html {
-	font-family: var(--font-family-main);
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-}
-
-body {
-	color: var(--color-font-main);
-	background: var(--color-background-main);
-	text-rendering: optimizeLegibility;
-}
+body { text-rendering: optimizeLegibility; }
 
 /* Lists: remove recuos e marcadores */
 ol, ul { list-style: none; margin: 0; padding: 0; }
@@ -56,34 +39,11 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 a { color: inherit; text-decoration: none; }
 
 /* Media */
-img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+img, picture, video { display: block; max-width: 100%; height: auto; }
 
 /* Forms */
 button, input, select, textarea { font: inherit; color: inherit; background: transparent; border: none; }
 button { cursor: pointer; }
 
-/* Focus acessível */
-:focus { outline: none; }
-:focus-visible { outline: 3px solid Highlight; outline-offset: 3px; }
-
-/* Tables */
-table { border-collapse: collapse; border-spacing: 0; }
-
-/* Accessibility helpers */
-[hidden] { display: none; }
-
 /* Remove controles indesejados em alguns browsers */
 input::-ms-clear, input::-ms-reveal { display: none; }
-
-/* Preferências do usuário por redução de movimento */
-/* @media (prefers-reduced-motion: reduce) {
-	*, *::before, *::after {
-		animation-duration: 0.001ms;
-		animation-iteration-count: 1;
-		transition-duration: 0.001ms;
-		scroll-behavior: auto;
-	}
-} */
-
-/* Font smoothing */
-/* html, body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } */
