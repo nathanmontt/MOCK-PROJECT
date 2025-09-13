@@ -6,13 +6,42 @@
     Com isso, dentro da sua pasta de estilos (styles), você cria uma pasta que armazene os estilos específicos de cada página .html que você tem!
     Vamos pensar na estruturação de todos os arquivos da seguinte forma:
     
-    src
-    styles/
-    ├── pages/
-    |   └──_contato.css
-    |   └──_login.css
-    |   └──_sobre.css
-    |   └── ....
+    src/
+    ├── assets/
+    |   ├── images/
+    |   |   └── imagem1.png
+    |   |   └── imagem2.jpeg
+    |   |   └── imagem3.jpg
+    |   |   └── ....
+    |   |   └── logo/
+    |   |   |   └── logo1.png
+    |   |   |   └── logo-alternativa.jpeg
+    |   |   |   └── ...
+    |   |   └── favicon/
+    |   |   |   └── favicon1.ico
+    |   |   |   └── favicon-alternativo.ico
+    |   |   |   └── ...
+    |   ├── js/
+    |   |   └── index.js
+    |   |   └── ...
+    |   ├── pages/
+    |   |   └── sobre.html
+    |   |   └── contato.html
+    |   |   └── ...
+    |   ├── styles/
+    |   |   ├── reset/
+    |   |   |   └── _reset.css
+    |   |   ├── pages/
+    |   |   |   └── _sobre.css
+    |   |   |   └── _contato.css
+    |   |   |   └── ...
+    |   |   └── _global.css
+    |   |   └── _main.css
+    |   ├── index.html
+    ├── LICENSE
+    ├── README.md
+    ├── INFOS.md
+
 
     Assim ficamos com uma boa organização desde o início. O main.css ficará responsável apenas por importar para cá. Mas porque isso?
 
