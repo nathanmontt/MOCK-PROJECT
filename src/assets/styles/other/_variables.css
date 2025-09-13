@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('_reset.css');
 
 :root {
     /* sizes */
+    --size-minimal: .01em;
     --size-smaller: .3em;
     --size-small: .5em;
     --size-normal: 1em;
+    --size-almost: 2em;
     --size-medium: 3em;
     --size-big: 5em;
     --size-bigger: 7em;
@@ -13,15 +16,35 @@
     --size-largest: 20em;
 
     /* colors */
-    --color-bg-main: black;
+    --color-bg-main: #242424;
     --color-bg-secondary: firebrick;
+    --color-bg-menu: white;
 
-    --color-font-main: blue;
-    --color-font-secondary: red;
+    --color-font-main: white;
+    --color-font-secondary: black;
+    --color-font-showcase: #FBFD82;
 
-    --color-btn-cta-main: purple;
+    --color-btn-cta-main: #FBFD82;
     --color-btn-secondary: salmon;
+
+    /* font-family */
+    --font-main: "Roboto", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Utilitários */
-.hidden { display: none; }
+.hidden {
+    /* colapsa visualmente, preservando o elemento no fluxo para animação */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.5rem);
+    transition: max-height .42s cubic-bezier(.2,.9,.2,1), opacity .28s ease, transform .28s ease;
+    display: block; /* garante layout consistente ao expandir */
+}

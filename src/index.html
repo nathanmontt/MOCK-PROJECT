@@ -27,28 +27,32 @@
     
     <link rel="icon" href="assets/images/logo/zap.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/styles/_main.css">
+
+    <script defer src="assets/js/main.js"></script>
+
     <title>heartz ── home</title>
 </head>
 <body>
     <header>
-        <a href="./index.html" class="link-home">
-            <img src="assets/images/logo/zap.png" class="logo-project" alt="Logo do Projeto">
-        </a>
-
-        <div class="container-hamb-menu">
-            <div class="hamb-menu"></div>
-            <nav>
-                <ul class="options-menu">
-                    <li><a href="./index.html">home</a></li>
-                    <li><a href="assets/pages/sobre.html">about</a></li>
-                    <li><a href="#pricing">pricing</a></li>
-                    <li><a href="#contact">contact</a></li>
-                </ul>
-                <ul class="options-login">
-                    <li><a href="assets/pages/login.html">login</a></li>
-                    <li><a href="assets/pages/signup.html">sign up</a></li>
-                </ul>
-            </nav>
+        <div class="container-display-flex">
+            <a href="./index.html" class="link-home">
+                <img src="assets/images/logo/zap-black-mode.png" class="logo-project" alt="Logo do Projeto">
+            </a>
+            <div class="container-hamb-menu-options">
+                <p class="open-close-menu">menu</p>
+                <nav class="hidden nav-total-options">
+                    <ul class="options-menu">
+                        <li><a href="./index.html">home</a></li>
+                        <li><a href="assets/pages/sobre.html">about</a></li>
+                        <li><a href="#pricing">pricing</a></li>
+                        <li><a href="#contact">contact</a></li>
+                    </ul>
+                    <ul class="options-login">
+                        <li><p class="not-yet">login</p></li>
+                        <li><p class="not-yet">sign up</p></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 </body>
