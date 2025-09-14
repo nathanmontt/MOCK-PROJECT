@@ -28,60 +28,40 @@ header {
 }
 .link-home .logo-project { width: var(--size-medium); }
 .container-hamb-menu-options .open-close-menu {
-    cursor: pointer;
-
-    color: var(--color-font-main);
-    
     font-weight: 300;
+    color: var(--color-font-main);
+    cursor: pointer;
+    
     transition: font-weight .5s;
 }
 .container-hamb-menu-options .open-close-menu:hover { font-weight: 500; }
 .container-hamb-menu-options nav {
-    border: var(--size-minimal) solid var(--color-bg-menu);
     position: absolute;
     right: 2em;
     top: 4.8em;
     padding: var(--size-small);
+    border: var(--size-minimal) solid var(--color-bg-menu);
 
-    max-height: 0;  /* fechado */
+    max-height: 0;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-0.5rem);
     pointer-events: none;
     transition: max-height .42s cubic-bezier(.2,.9,.2,1), opacity .28s ease, transform .28s ease;
 }
-
-/* sem .hidden = menu suave */
 .container-hamb-menu-options nav:not(.hidden) {
     max-height: 600px;
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
 }
-
 nav ul { text-align: right; }
 nav .options-menu { color: var(--color-font-main); }
-
-.options-menu li {}
-.options-menu a {}
-
-nav .options-login { margin-top: var(--size-almost); }
-
-.options-login .not-yet {
-    color: var(--color-font-showcase);
-    cursor: not-allowed;
-}
-.options-login li {}
-.options-login a{}
 
 /* media queries */
 /* eliminando o "menu" */
 @media screen and (min-width: 767px) {
-    .container-hamb-menu-options .open-close-menu {
-        display: none;
-    }
+    .container-hamb-menu-options .open-close-menu { display: none; }
 
-    /* nav passa a ser horizontal e sempre visível em telas maiores */
     .container-hamb-menu-options .nav-total-options {
         display: flex;
         position: static;
@@ -90,32 +70,18 @@ nav .options-login { margin-top: var(--size-almost); }
         gap: var(--size-small);
         border: none;
         padding: 0;
-        /* garante que as regras de animação/hidden não escondam o menu */
+
         max-height: none;
         opacity: 1;
         transform: none;
-        pointer-events: auto;
     }
 
-    /* cada <ul> vira um grupo inline */
     .container-hamb-menu-options .nav-total-options > ul {
         display: flex;
+        align-items: center;
         gap: var(--size-small);
+        
         margin: 0;
         padding: 0;
-        list-style: none;
-        align-items: center;
-    }
-
-    /* remove margem superior usada para menu vertical */
-    .container-hamb-menu-options .nav-total-options .options-login {
-        margin-top: 0;
-    }
-}
-
-/* fazendo um display diferente (mantido para compatibilidade) */
-@media screen and (min-width: 767px) {
-    .container-hamb-menu-options .nav-total-options {
-        /* fallback: ao invés de position: inherit, usamos position: static (acima) */
     }
 }
