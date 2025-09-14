@@ -32,7 +32,7 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-.link-home .logo-project { width: var(--size-medium); }
+.link-home .logo-project { width: var(--size-almost); }
 .container-hamb-menu-options .open-close-menu {
     font-weight: 300;
     color: var(--color-font-main);
@@ -43,8 +43,8 @@ header {
 .container-hamb-menu-options .open-close-menu:hover { font-weight: 500; }
 .container-hamb-menu-options nav {
     position: absolute;
-    right: 2em;
-    top: 4.8em;
+    right: 1.5em;
+    top: 3.5em;
     padding: var(--size-small);
     border: var(--size-minimal) solid var(--color-bg-menu);
 
@@ -67,11 +67,31 @@ header {
 nav ul { text-align: right; }
 nav .options-menu { color: var(--color-font-main); }
 
-/* media queries */
-/* eliminando o "menu" */
-@media screen and (min-width: 767px) {
-    .container-hamb-menu-options .open-close-menu { display: none; }
 
+/* MAIN */
+main .container-hero-section {
+    min-height: 100dvh;
+    background-image: url('../images/pics/adrianna-geo-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.container-hero-section #slogan {
+    min-height: 100dvh;
+    display: grid;
+    place-content: center;
+
+    color: var(--color-font-main);
+    font-weight: 100;
+    font-size: calc(var(--size-almost) - 0.5em);
+
+    background-color: var(--color-bg-overlay);
+}
+
+/* media queries */
+@media screen and (min-width: 767px) {
+    /* eliminando o "menu" */
+    .container-hamb-menu-options .open-close-menu { display: none; }
     .container-hamb-menu-options .nav-total-options {
         display: flex;
         position: static;
@@ -80,15 +100,15 @@ nav .options-menu { color: var(--color-font-main); }
         gap: var(--size-small);
         border: none;
         padding: 0;
-
+        
         max-height: none;
         opacity: 1;
         transform: none;
-
+        
         pointer-events: auto;
         visibility: visible;
     }
-
+    
     .container-hamb-menu-options .nav-total-options > ul {
         display: flex;
         align-items: center;
@@ -97,16 +117,19 @@ nav .options-menu { color: var(--color-font-main); }
         margin: 0;
         padding: 0;
     }
-}
+    
+    /* mudando o bg-img em tamanhos de telas diferentes */
+    main .container-hero-section {
+        min-height: 100dvh;
+        background-image: url('../images/pics/birmingham-museums-trust-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
-/* MAIN */
-main {
-    /* position: absolute; */
-}
-main .container-hero-section {
-    min-height: 100dvh;
-    background-image: url('../images/pics/dan-farrell-unsplash.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    /* aumentando o tamanho da fonte */
+    .container-hero-section #slogan {
+        font-size: calc(var(--size-almost) - 0.5em);
+        font-weight: 500;
+    }
 }
