@@ -17,7 +17,13 @@
 @import url('other/_variables.css');
 
 body { background-color: var(--color-bg-main); }
+
+/* HEADER */
 header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
     margin: var(--size-normal);
     padding: var(--size-normal);
 }
@@ -48,11 +54,15 @@ header {
     transform: translateY(-0.5rem);
     pointer-events: none;
     transition: max-height .42s cubic-bezier(.2,.9,.2,1), opacity .28s ease, transform .28s ease;
+    z-index: 1000;
 }
 .container-hamb-menu-options nav:not(.hidden) {
     max-height: 600px;
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+    z-index: 1000;
 }
 nav ul { text-align: right; }
 nav .options-menu { color: var(--color-font-main); }
@@ -74,6 +84,9 @@ nav .options-menu { color: var(--color-font-main); }
         max-height: none;
         opacity: 1;
         transform: none;
+
+        pointer-events: auto;
+        visibility: visible;
     }
 
     .container-hamb-menu-options .nav-total-options > ul {
@@ -84,4 +97,16 @@ nav .options-menu { color: var(--color-font-main); }
         margin: 0;
         padding: 0;
     }
+}
+
+/* MAIN */
+main {
+    /* position: absolute; */
+}
+main .container-hero-section {
+    min-height: 100dvh;
+    background-image: url('../images/pics/dan-farrell-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
