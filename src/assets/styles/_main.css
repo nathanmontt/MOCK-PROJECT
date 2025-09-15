@@ -99,57 +99,63 @@ main .container-hero-section {
 
     background-color: var(--color-bg-overlay);
 }
-
 /* hero e camadas de background (crossfade suave) */
-.container-hero-section {
-    position: relative;
-    overflow: hidden;
-}
+.container-hero-section { position: relative; overflow: hidden; }
 
 /* camadas de background que fazem o crossfade */
 .container-hero-section .bg-layer {
     position: absolute;
     inset: 0;
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    opacity: 0; /* inicial */
-    transition: opacity .8s ease; /* valor padrão; JS ajusta dinamicamente para FADE_MS */
+    opacity: 0;
+    transition: opacity .8s ease;
     will-change: opacity;
     z-index: 0;
     pointer-events: none;
 }
+.container-hero-section > * { position: relative; z-index: 2; }
 
-/* garantir que o conteúdo (slogan/header etc.) fique acima das camadas */
-.container-hero-section > * {
-    position: relative;
-    z-index: 2;
+main #about {
+    min-height: 100dvh;
+    background-color: var(--color-bg-about);
+    display: flex;
+    flex-direction: column;
 }
+#about .container-bg-about-image {
+    background-image: url('../images/pics/general/sunira-moses-unsplash.jpg');
+    background-position: center;
+    background-size: 30em;
+    background-repeat: no-repeat;
+    min-height: 70dvh;
 
-/* se precisar de overlay escuro por cima da imagem:
-.container-hero-section::after {
-    content: "";
-    position: absolute; inset:0; background: rgba(0,0,0,.25); z-index:1;
+    margin: var(--size-medium) var(--size-medium) 0 var(--size-medium);
 }
-*/
+#about .container-about-texts {
+    margin: var(--size-medium);
+}
+.container-about-texts .about-title {
+    font-weight: 100;
+    font-style: italic;
+    font-size: var(--size-almost);
+}
+.container-about-texts .about-description { font-weight: 200; }
 
 /* media queries */
 @media screen and (min-width: 767px) {
     /* eliminando o "menu" */
     .container-hamb-menu-options .open-close-menu { display: none; }
     .container-hamb-menu-options .nav-total-options {
-        display: flex;
-        position: static;
+        display: flex; position: static;
         flex-direction: row;
         align-items: center;
         gap: var(--size-small);
-        border: none;
-        padding: 0;
+        border: none; padding: 0;
         
-        max-height: none;
-        opacity: 1;
-        transform: none;
+        max-height: none; opacity: 1; transform: none;
         
         pointer-events: auto;
         visibility: visible;
@@ -159,11 +165,8 @@ main .container-hero-section {
         display: flex;
         align-items: center;
         gap: var(--size-small);
-        
-        margin: 0;
-        padding: 0;
+        margin: 0; padding: 0;
     }
-    
     /* mudando o bg-img em tamanhos de telas diferentes */
     main .container-hero-section {
         min-height: 100dvh;
@@ -172,9 +175,23 @@ main .container-hero-section {
         background-position: center;
         background-repeat: no-repeat;
     }
-
-    /* aumentando o tamanho da fonte */
     .container-hero-section #slogan {
         font-size: calc(var(--size-almost) - 0.5em);
     }
+
+    /* mexendo na mais, na seção sobre */
+    #about .container-about-texts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--size-big);
+        margin: 0;
+    }
+    main #about {
+        min-height: 100dvh;
+        background-color: var(--color-bg-about);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #about .container-bg-about-image { margin: 0; }
 }

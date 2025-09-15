@@ -17,11 +17,11 @@
 
     /* colors */
     --color-bg-main: #242424;
-    --color-bg-secondary: firebrick;
     --color-bg-menu: white;
+    --color-bg-about: #CACACA;
     --color-bg-overlay: #00000081;
 
-    --color-font-main: white;
+    --color-font-main: rgb(228, 228, 228);
     --color-font-secondary: black;
     --color-font-showcase: #FBFD82;
 
@@ -36,6 +36,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 /* Utilitários */
