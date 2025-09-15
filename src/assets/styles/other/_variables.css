@@ -25,8 +25,9 @@
     --color-font-secondary: black;
     --color-font-showcase: #FBFD82;
 
-    --color-btn-cta-main: #FBFD82;
-    --color-btn-secondary: salmon;
+    --color-border-main: #CACACA;
+
+    --color-footer-main: white;
 
     /* font-family */
     --font-main: "Roboto", sans-serif;

@@ -144,6 +144,54 @@ main #about {
 }
 .container-about-texts .about-description { font-weight: 200; }
 
+
+
+/* FOOTER */
+footer {
+    min-height: 20dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-font-main);
+}
+footer .footer-announcement {}
+footer > a {
+    display: inline-block;
+    padding: var(--size-small) var(--size-almost);
+    margin-top: var(--size-normal);
+
+    color: var(--color-font-main);
+    border: var(--size-minimal) solid var(--color-border-main);
+
+    background-image: linear-gradient(90deg, var(--color-footer-main) 0%, var(--color-footer-main) 100%);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 0% 100%;
+
+    /* transições */
+    transition: background-size .45s cubic-bezier(.2,.9,.2,1), color .25s ease, transform .15s ease;
+}
+
+footer > a:hover,
+footer > a:focus {
+    background-size: 100% 100%;
+    color: var(--color-font-secondary);
+}
+
+
+/* Respeitar preferência por reduzir movimento */
+@media (prefers-reduced-motion: reduce) {
+    footer > a {
+        transition: none;
+    }
+    footer > a:hover,
+    footer > a:focus {
+        transform: none;
+        background-size: 100% 100%;
+    }
+}
+
 /* media queries */
 @media screen and (min-width: 767px) {
     /* eliminando o "menu" */
