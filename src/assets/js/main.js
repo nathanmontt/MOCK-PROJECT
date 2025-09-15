@@ -22,10 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
             'assets/images/pics/mobile/m-img-2.jpg',
             'assets/images/pics/mobile/m-img-3.jpg',
             'assets/images/pics/mobile/m-img-4.jpg',
-            'assets/images/pics/mobile/m-img-5.jpg',
+            'assets/images/pics/mobile/m-img-5.jpg'
         ],
         breakpoint: 767,
         changeInterval: 4000,
-        fadeMs: 800
+        fadeMs: 800,
+        lazy: true,                 // lazy por padrão
+        progressivePreloadDelay: 600
     });
 });

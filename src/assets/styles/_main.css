@@ -67,13 +67,23 @@ header {
     z-index: 1000;
 }
 nav ul { text-align: right; }
-nav .options-menu { color: var(--color-font-main); }
+nav .options-menu {
+    color: var(--color-font-main);
+    font-weight: 100;
+    cursor: pointer;
+}
+.options-menu li > a {
+    transition: font-weight .3s ease;
+}
+.options-menu li > a:hover {
+    font-weight: 300;
+}
 
 
 /* MAIN */
 main .container-hero-section {
     min-height: 100dvh;
-    background-image: url('../images/pics/d-img-1.jpg');
+    background-image: url('../images/pics/desktop/d-img-1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -157,7 +167,7 @@ main .container-hero-section {
     /* mudando o bg-img em tamanhos de telas diferentes */
     main .container-hero-section {
         min-height: 100dvh;
-        background-image: url('../images/pics/m-img-1.jpg');
+        background-image: url('../images/pics/mobile/m-img-1.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

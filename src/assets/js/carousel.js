@@ -1,10 +1,14 @@
-function preloadImages(list) {
-    return Promise.all(list.map(src => new Promise(res => {
-        const i = new Image();
-        i.onload = () => res(src);
-        i.onerror = () => res(src);
-        i.src = src;
-    })));
+/**
+ * initCarousel - carrossel de background responsivo com lazy-loading
+ * Opções: containerSelector, desktopImages, mobileImages, breakpoint, changeInterval, fadeMs, lazy, progressivePreloadDelay
+ */
+function preloadImage(src) {
+    return new Promise(res => {
+        const img = new Image();
+        img.onload = () => res(src);
+        img.onerror = () => res(src);
+        img.src = src;
+    });
 }
 
 export function initCarousel({
@@ -13,15 +17,21 @@ export function initCarousel({
     mobileImages = [],
     breakpoint = 767,
     changeInterval = 4000,
-    fadeMs = 800
+    fadeMs = 800,
+    lazy = true,
+    progressivePreloadDelay = 600
 } = {}) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
 
+    const mq = window.matchMedia(`(min-width: ${breakpoint}px)`);
     let imagesSet = [];
     let index = 0;
     let timer = null;
-    const mq = window.matchMedia(`(min-width: ${breakpoint}px)`);
+    let started = false;
+    let preloadQueue = [];
+    let preloadTimer = null;
+    let isContainerVisible = false;
 
     function createBgLayer(src) {
         const layer = document.createElement('div');
@@ -40,7 +50,24 @@ export function initCarousel({
         setTimeout(() => { existing.forEach(l => l.remove()); }, fadeMs + 50);
     }
 
+    function startProgressivePreload() {
+        if (!preloadTimer && preloadQueue.length > 0) runProgressivePreload();
+    }
+    function enqueueProgressivePreload(list) {
+        preloadQueue = preloadQueue.concat(list.filter(Boolean));
+        if (!preloadTimer) runProgressivePreload();
+    }
+    function runProgressivePreload() {
+        if (preloadQueue.length === 0) { preloadTimer = null; return; }
+        const src = preloadQueue.shift();
+        preloadImage(src).finally(() => {
+            preloadTimer = setTimeout(runProgressivePreload, progressivePreloadDelay);
+        });
+    }
+
     function start() {
+        if (started) return;
+        started = true;
         stop();
         if (!imagesSet || imagesSet.length === 0) return;
         index = index % imagesSet.length;
@@ -49,33 +76,75 @@ export function initCarousel({
             index = (index + 1) % imagesSet.length;
             createBgLayer(imagesSet[index]);
         }, changeInterval);
+        startProgressivePreload();
     }
 
     function stop() {
         if (timer) { clearInterval(timer); timer = null; }
+        started = false;
     }
 
     function applySet() {
         const useDesktop = mq.matches;
         const newSet = useDesktop ? desktopImages : mobileImages;
-        // comparar arrays por referência ou comprimento para decidir reiniciar
         if (imagesSet !== newSet) {
             imagesSet = newSet;
             index = 0;
             container.querySelectorAll('.bg-layer').forEach(el => el.remove());
-            start();
+            if (lazy) {
+                const first = imagesSet[0];
+                if (first) {
+                    // tentativa de ajudar LCP
+                    try {
+                        const link = document.createElement('link');
+                        link.rel = 'preload';
+                        link.as = 'image';
+                        link.href = first;
+                        document.head.appendChild(link);
+                        setTimeout(() => document.head.removeChild(link), 5000);
+                    } catch (e) { /* ignore */ }
+                    preloadImage(first).then(() => {
+                        createBgLayer(first);
+                        enqueueProgressivePreload(imagesSet.slice(1));
+                        if (isContainerVisible) start();
+                    });
+                }
+            } else {
+                Promise.all(imagesSet.map(preloadImage)).then(() => start());
+            }
         }
     }
 
-    // observar mudanças de breakpoint
+    // IntersectionObserver para iniciar quando o hero aparecer
+    if (lazy && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target === container) {
+                    if (entry.isIntersecting) {
+                        isContainerVisible = true;
+                        if (!started && imagesSet && imagesSet.length) start();
+                    } else {
+                        isContainerVisible = false;
+                        // opcional: pausar quando não visível
+                        // stop();
+                    }
+                }
+            });
+        }, { threshold: 0.15 });
+        io.observe(container);
+    } else {
+        // sem IO, iniciar imediatamente
+        isContainerVisible = true;
+    }
+
     if (mq.addEventListener) mq.addEventListener('change', applySet);
     else if (mq.addListener) mq.addListener(applySet);
 
-    // preload e start (pré-carrega ambos para evitar flicker)
-    Promise.all([preloadImages(desktopImages), preloadImages(mobileImages)])
-        .then(() => applySet())
-        .catch(() => applySet());
+    // inicial
+    applySet();
 
-    // retorno para controle externo
-    return { start, stop, applySet };
+    return {
+        start: () => { applySet(); start(); },
+        stop: () => stop()
+    };
 }

@@ -30,9 +30,7 @@ export function initNav({ navSelector = '.nav-total-options', btnSelector = '.op
         resizeTimer = setTimeout(syncNavByWidth, 120);
     });
 
-    // inicial
     syncNavByWidth();
 
-    // expor função se quiser controlar externamente
     return { sync: syncNavByWidth };
 }
