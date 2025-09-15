@@ -26,6 +26,8 @@ header {
     left: 0;
     margin: var(--size-normal);
     padding: var(--size-normal);
+
+    z-index: 999;
 }
 .container-display-flex {
     display: flex;
@@ -71,7 +73,7 @@ nav .options-menu { color: var(--color-font-main); }
 /* MAIN */
 main .container-hero-section {
     min-height: 100dvh;
-    background-image: url('../images/pics/adrianna-geo-unsplash.jpg');
+    background-image: url('../images/pics/d-img-1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -87,6 +89,40 @@ main .container-hero-section {
 
     background-color: var(--color-bg-overlay);
 }
+
+/* hero e camadas de background (crossfade suave) */
+.container-hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* camadas de background que fazem o crossfade */
+.container-hero-section .bg-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0; /* inicial */
+    transition: opacity .8s ease; /* valor padrão; JS ajusta dinamicamente para FADE_MS */
+    will-change: opacity;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* garantir que o conteúdo (slogan/header etc.) fique acima das camadas */
+.container-hero-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* se precisar de overlay escuro por cima da imagem:
+.container-hero-section::after {
+    content: "";
+    position: absolute; inset:0; background: rgba(0,0,0,.25); z-index:1;
+}
+*/
 
 /* media queries */
 @media screen and (min-width: 767px) {
@@ -121,7 +157,7 @@ main .container-hero-section {
     /* mudando o bg-img em tamanhos de telas diferentes */
     main .container-hero-section {
         min-height: 100dvh;
-        background-image: url('../images/pics/birmingham-museums-trust-unsplash.jpg');
+        background-image: url('../images/pics/m-img-1.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -130,6 +166,5 @@ main .container-hero-section {
     /* aumentando o tamanho da fonte */
     .container-hero-section #slogan {
         font-size: calc(var(--size-almost) - 0.5em);
-        font-weight: 500;
     }
 }
